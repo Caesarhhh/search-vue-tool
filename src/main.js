@@ -2,9 +2,10 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-
+import VueRouter from "vue-router";
 import 'ant-design-vue/dist/antd.css';
 import { Modal,Form,Button,Input,Icon,Upload,Select,Switch,InputNumber,Table,Descriptions } from 'ant-design-vue'
+import routers from './router';
 Vue.use(Icon)
 Vue.use(Upload)
 Vue.use(Input)
@@ -17,10 +18,28 @@ Vue.use(Table)
 Vue.use(InputNumber)
 Vue.use(Descriptions)
 Vue.config.productionTip = false
-
+Vue.use(VueRouter)
+const router=new VueRouter({
+  mode:'history',
+  routes:routers,
+  base:'/'
+})
+router.beforeEach((to, from, next) => {
+  if (to.path === '/login') {
+    next();
+  } else {
+    let token = localStorage.getItem('user');
+    if (token === 'null' || token === '') {
+      next('/login');
+    } else {
+      next();
+    }
+  }
+});
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  router,
 })
