@@ -1,20 +1,22 @@
 <template>
   <div id="app">
-    <Search/>
+
+    <router-view />
   </div>
 </template>
 <script>
-
 import Search from './components/search.vue'
 import Search_result from './components/search_result.vue'
+import Login from './components/login.vue'
 
 export default {
-
   name: 'App',
   components: {
 
+
     Search_result,
-    Search
+    Search,
+    Login
   }
 
 }
