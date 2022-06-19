@@ -1,5 +1,8 @@
 <template>
-  <a-form
+  <div class="Welcome">
+    <div class="logo">
+    <img src="./assets/logo.png" class="logoimg">
+    <a-form
     :model="formState"
     name="basic"
     :label-col="{ span: 8 }"
@@ -32,7 +35,12 @@
       <a-button type="primary" html-type="submit">Submit</a-button>
     </a-form-item>
   </a-form>
+  </div>
+  </div>
+
+  
 </template>
+
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
 
@@ -63,3 +71,15 @@ export default defineComponent({
   },
 });
 </script>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.logoimg{
+    width:320px;
+    height:200px;
+}
+.logo{
+    position: absolute;
+    left:40%;
+    top: 10%
+}
+</style>
