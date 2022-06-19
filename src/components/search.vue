@@ -1,6 +1,14 @@
 <template>
   <div class="hello">
-    1
+    <a-input-search v-model:value="value" placeholder="input search loading deault" loading />
+    <br />
+    <br />
+    <a-input-search
+      v-model:value="value"
+      placeholder="input search loading with enterButton"
+      loading
+      enter-button
+    />
   </div>
 </template>
 

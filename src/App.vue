@@ -6,10 +6,6 @@
 
 <script>
 import Search from './components/search.vue'
-import  { Input } from 'ant-design-vue';
-import 'ant-design-vue/dist/antd.css';
-import Vue from 'vue';
-Vue.use(Input)
 export default {
   name: 'App',
   components: {
