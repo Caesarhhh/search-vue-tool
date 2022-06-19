@@ -16,8 +16,10 @@ Vue.use(Switch)
 Vue.use(Table)
 Vue.use(InputNumber)
 Vue.use(Descriptions)
+Vue.use(Icon)
 Vue.config.productionTip = false
 
+import { PhoneOutlined } from '@ant-design/icons';
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

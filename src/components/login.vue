@@ -1,7 +1,7 @@
 <template>
   <div class="Welcome">
     <div class="logo">
-    <img src="./assets/logo.png" class="logoimg">
+    <img src="@/assets/logo.png" class="logoimg">
     <a-form
     id="components-form-demo-normal-login"
     :form="form"

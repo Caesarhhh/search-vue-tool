@@ -4,14 +4,14 @@
     <div id="searchinput">
       <a-input-search class="input"
       :value="content"
-      placeholder="input search loading with enterButton"
+      placeholder="输入查找内容"
       :loading="searchLoading"
       enter-button
     />
     </div>
-    <a-button>
-      语音输入
-    </a-button>
+    <div>
+      <img src="@/assets/imgs/voice.png" class="voice">
+    </div>
   </div>
 </template>
 
@@ -74,8 +74,8 @@ export default {
   name: 'Search',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      content: 'input search content',
+      msg: '',
+      content: '',
       searchLoading: false,
       data,
       columns,
@@ -86,38 +86,35 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-#inputsearch{
-  width:600px
-}
 .logo{
-  width: 15%;
+   width:320px;
+    height:200px;
 }
 .page{
-  margin: 0 auto;
-  position: relative;
+    position: absolute;
+    left:35%;
+    top: 15%
 }
 .input{
-  width: 24%;
-  left: 38%;
+
+  width: 600px;
+
 }
 .results{
   width: 60%;
   left: 20%;
   margin-top: 10px;
   position: relative;
+}
+.button{
+  position: relative;
+  top:20px
+
+}
+.voice{
+  width: 80px;
+  height: 80px;
+  position: relative;
+  top:10px
 }
 </style>
