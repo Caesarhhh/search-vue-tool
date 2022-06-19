@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import 'ant-design-vue/dist/antd.css';
-import { Modal,Form,Button,Input,Icon,Upload,Select,Switch,InputNumber } from 'ant-design-vue'
+import { Modal,Form,Button,Input,Icon,Upload,Select,Switch,InputNumber,Table,Descriptions } from 'ant-design-vue'
 Vue.use(Icon)
 Vue.use(Upload)
 Vue.use(Input)
@@ -12,7 +12,9 @@ Vue.use(Select)
 Vue.use(Form)
 Vue.use(Modal)
 Vue.use(Switch)
+Vue.use(Table)
 Vue.use(InputNumber)
+Vue.use(Descriptions)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
