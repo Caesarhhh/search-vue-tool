@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <search/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-
+import Search from './components/search.vue'
+import  { Input } from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.css';
+import Vue from 'vue';
+Vue.use(Input)
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Search
   }
 }
 </script>
