@@ -3,14 +3,13 @@
     <Login/>
   </div>
 </template>
-
 <script>
 import Welcome from './welcome.vue'
 import Login from './login.vue'
 export default {
+
   name: 'App',
   components: {
-    Welcome,
     Login
 }
 }

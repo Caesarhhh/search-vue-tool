@@ -3,73 +3,63 @@
     <div class="logo">
     <img src="./assets/logo.png" class="logoimg">
     <a-form
-    :model="formState"
-    name="basic"
-    :label-col="{ span: 8 }"
-    :wrapper-col="{ span: 16 }"
-    autocomplete="off"
-    @finish="onFinish"
-    @finishFailed="onFinishFailed"
+    id="components-form-demo-normal-login"
+    :form="form"
+    class="login-form"
+    @submit="handleSubmit"
   >
-    <a-form-item
-      label="Username"
-      name="username"
-      :rules="[{ required: true, message: 'Please input your username!' }]"
-    >
-      <a-input v-model:value="formState.username" />
+    <a-form-item>
+      <a-input
+        v-decorator="[
+          'userName',
+          { rules: [{ required: true, message: '请输入您的工号或手机号码!' }] },
+        ]"
+        placeholder="工号或手机号码" class="frame"
+      >
+        <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
+      </a-input>
     </a-form-item>
-
-    <a-form-item
-      label="Password"
-      name="password"
-      :rules="[{ required: true, message: 'Please input your password!' }]"
-    >
-      <a-input-password v-model:value="formState.password" />
+    <a-form-item>
+      <a-input
+        v-decorator="[
+          'password',
+          { rules: [{ required: true, message: '请输入密码！' }] },
+        ]"
+        type="password"
+        placeholder="密码" class="frame"
+      >
+        <a-icon slot="prefix" type="lock" style="color: rgba(0,0,0,.25)" />
+      </a-input>
     </a-form-item>
+    <a-form-item>
+      <a-button type="primary" html-type="submit" class="login-form-button">
+       登录
+      </a-button>
 
-    <a-form-item name="remember" :wrapper-col="{ offset: 8, span: 16 }">
-      <a-checkbox v-model:checked="formState.remember">Remember me</a-checkbox>
-    </a-form-item>
-
-    <a-form-item :wrapper-col="{ offset: 8, span: 16 }">
-      <a-button type="primary" html-type="submit">Submit</a-button>
     </a-form-item>
   </a-form>
-  </div>
-  </div>
 
-  
+    </div>
+    </div>
+
 </template>
 
-<script lang="ts">
-import { defineComponent, reactive } from 'vue';
-
-interface FormState {
-  username: string;
-  password: string;
-  remember: boolean;
-}
-export default defineComponent({
-  setup() {
-    const formState = reactive<FormState>({
-      username: '',
-      password: '',
-      remember: true,
-    });
-    const onFinish = (values: any) => {
-      console.log('Success:', values);
-    };
-
-    const onFinishFailed = (errorInfo: any) => {
-      console.log('Failed:', errorInfo);
-    };
-    return {
-      formState,
-      onFinish,
-      onFinishFailed,
-    };
+<script >
+export default {
+  beforeCreate() {
+    this.form = this.$form.createForm(this, { name: 'normal_login' });
   },
-});
+  methods: {
+    handleSubmit(e) {
+      e.preventDefault();
+      this.form.validateFields((err, values) => {
+        if (!err) {
+          console.log('Received values of form: ', values);
+        }
+      });
+    },
+  },
+};
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
@@ -79,7 +69,16 @@ export default defineComponent({
 }
 .logo{
     position: absolute;
-    left:40%;
-    top: 10%
+    left:35%;
+    top: 15%
+}
+.frame
+{
+  width: 500px;
+  top:20px
+}
+.login-form-button{
+  width:75 px;
+ top:20px
 }
 </style>
