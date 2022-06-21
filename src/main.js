@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import VueRouter from "vue-router";
 import 'ant-design-vue/dist/antd.css';
-import { Modal,Form,Button,Input,Icon,Upload,Select,Switch,InputNumber,Table,Descriptions } from 'ant-design-vue'
+import { Modal,Form,Button,Input,Icon,Upload,Select,Switch,InputNumber,Table,Descriptions, Card ,List, Row, Col} from 'ant-design-vue'
 import routers from './router';
 Vue.use(Icon)
 Vue.use(Upload)
@@ -18,6 +18,12 @@ Vue.use(Table)
 Vue.use(InputNumber)
 Vue.use(Descriptions)
 Vue.use(Icon)
+Vue.use(Card)
+Vue.use(List)
+Vue.use(Row)
+Vue.use(Col)
+
+
 Vue.config.productionTip = false
 
 Vue.use(VueRouter)
@@ -26,18 +32,18 @@ const router=new VueRouter({
   routes:routers,
   base:'/'
 })
-router.beforeEach((to, from, next) => {
-  if (to.path === '/login') {
-    next();
-  } else {
-    let token = localStorage.getItem('user');
-    if (token === 'null' || token === '') {
-      next('/login');
-    } else {
-      next();
-    }
-  }
-});
+// router.beforeEach((to, from, next) => {
+//   if (to.path === '/login') {
+//     next();
+//   } else {
+//     let token = localStorage.getItem('user');
+//     if (token === 'null' || token === '') {
+//       next('/login');
+//     } else {
+//       next();
+//     }
+//   }
+// });
 
 /* eslint-disable no-new */
 new Vue({

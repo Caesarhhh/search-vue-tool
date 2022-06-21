@@ -1,23 +1,23 @@
 <template>
   <div id="app">
+    <router-view></router-view>
+    
 
-    <router-view />
   </div>
 </template>
 <script>
 import Search from './components/search.vue'
-import Search_result from './components/search_result.vue'
+import Search_result from './components/Search_result.vue'
 import Login from './components/login.vue'
-
+import Search_summary from './components/Search_summary.vue'
 export default {
   name: 'App',
   components: {
-
-
+    Search_summary,
     Search_result,
     Search,
-    Login
-  }
+    Login,
+}
 
 }
 </script>

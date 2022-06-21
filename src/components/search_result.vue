@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div class="description_box">
-      <a-button class="return_button">
+      <a-button class="return_button" @click="toSearch_summary">
         返回
       </a-button>
       <img src="@/assets/imgs/car_sample.jpg" alt="" class="search_sample_img">
@@ -110,6 +110,11 @@ export default {
       searchLoading: false,
       data,
       columns,
+    }
+  },
+  methods:{
+    toSearch_summary(e){
+      this.$router.push("/Search_summary")
     }
   }
 }

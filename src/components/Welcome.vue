@@ -1,11 +1,11 @@
 <template>
-  <div class="Welcome">
+  <div class="Welcome" @click="toSearch">
     <h1>{{ msg }}</h1>
-    <div class="logo">
-    <img src="./assets/logo.png" class="logoimg">
+    <div class="logo" >
+    <img src="../assets/imgs/logo.png" class="logoimg">
   </div>
   </div>
-
+ 
 </template>
 
 <script>
@@ -14,6 +14,11 @@ export default {
   data () {
     return {
       msg: '智能信息查询'
+    }
+  },
+  methods:{
+    toSearch(e){
+      this.$router.push("/Search")
     }
   }
 }
